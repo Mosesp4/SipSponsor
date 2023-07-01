@@ -60,6 +60,7 @@ const Home: NextPage = () => {
         alignItems={"center"}
         py={"20px"}
         height={"80px"}
+        
       >
         <Box >
           <Flex justifyContent={"space-between"}>

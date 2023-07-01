@@ -1,5 +1,6 @@
 .container {
   padding: 0 2rem;
+  
 }
 
 .main {
@@ -99,6 +100,26 @@
   height: 1em;
   margin-left: 0.5rem;
 }
+
+/* .gradient-01 {
+  position: absolute;
+  width: 200px;
+  height: 238px;
+  top: 0;
+  background: #ca00ff;
+  filter: blur(175px);
+}
+
+.gradient-02 {
+  position: absolute;
+  width: 200px;
+  height: 238px;
+  top: -6rem;
+  right: 0px;
+  background: #7aebfb;
+  filter: blur(190px)
+} */
+
 
 @media (max-width: 600px) {
   .grid {
