@@ -67,7 +67,7 @@ const about = () => {
                   contribute to the success of their favorite creators. With Buy
                   a Coffee, you can show your appreciation for the incredible
                   content, art, music, writing, and more that creators produce.
-                  Whether it's a single cup of coffee or ongoing support, every
+                  Whether it&apos;s a single cup of coffee or ongoing support, every
                   contribution counts and helps fuel the passion and dedication
                   of creators around the world. Our Features: Seamless
                   Transactions: Our platform ensures smooth and secure

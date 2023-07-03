@@ -149,7 +149,7 @@ const Home: NextPage = () => {
                     {"Buy a Coffee 0.01ETH"}
                   </Web3Button>
                 ) : (
-                  <Text>"Please connect your Wallet"</Text>
+                  <Text>&quot;Please connect your Wallet&quot;</Text>
                 )}
               </Box>
             </CardBody>
