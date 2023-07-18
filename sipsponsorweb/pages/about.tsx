@@ -43,7 +43,7 @@ const about = () => {
           About Us
         </Text>
         </Center>
-        <SimpleGrid columns={1} spacing={10} mt={"50px"} >
+        <SimpleGrid mt={"50px"} width={"full"} color={"white"}>
           <Box>
             {/* <Card>
               <CardBody> */}

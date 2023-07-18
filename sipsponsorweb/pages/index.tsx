@@ -18,12 +18,16 @@ import {
   Skeleton,
   Input,
   Stack,
+  Center,
+  Button,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link"
 import { ethers } from "ethers";
 import { useState } from "react";
-import heroImage from "../images/funds3.png"
-// import Image from "next/image";
+import  Hero from "../images/hero.png";
+import Image from "next/image";
+
 
 const Home: NextPage = () => {
   const address = useAddress();
@@ -48,10 +52,14 @@ const Home: NextPage = () => {
     setName(event.target.value);
   };
 
+  const gradientColor = useColorModeValue('blue.400', 'blue.800');
+
   function clearValues() {
     setMessage("");
     setName("");
   }
+
+  
 
   return (
     <Container maxW={"1200px"} w={"full"} >
@@ -64,6 +72,7 @@ const Home: NextPage = () => {
       >
         <Box >
           <Flex justifyContent={"space-between"}>
+          <img src="/images/logo.png" width={"50px"} />
             <Text
               bgGradient="linear(to-l, #7928CA, #FF0080)"
               bgClip="text"
@@ -78,83 +87,129 @@ const Home: NextPage = () => {
         </Box>
         <Box>
 
-        <Link href="/about">
+        {/* <Link href="/about">
           <Text fontWeight={"bold"}>About Us</Text>
-         </Link>
+         </Link> */}
 
         </Box>
+        
         <ConnectWallet />
       </Flex>
 
-      {/* <Box>
-        <Flex>
-        <Image src={heroImage} width={"30px"}/>
-
-        </Flex>
-      </Box> */}
-
+      <Flex
+      justifyContent="center"
+      alignItems="center"
+      height="100vh"
+      position="relative"
+      overflow="hidden"
+    >
+      <Box
+        position="absolute"
+        top="0"
+        right="0"
+        bottom="0"
+        left="0"
+        zIndex="-1"
+        bgGradient="linear(to right, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8))"
+      />
+      <Box
+        maxWidth="700px"
+        textAlign="center"
+        zIndex="1"
+      >
+        <Text fontSize="4xl" fontWeight="bold" mb={6} color="white">
+          Make a Difference Today!
+        </Text>
+        <Text fontSize="xl" mb={8} color="white">
+          Help us support the less privileged by sending them a coffee. 
+          Your contribution can bring a smile to someone's face and brighten their day.
+        </Text>
+        <a href="#donate-section">
+      <Button colorScheme="purple" size="lg">
+        Donate Now
+      </Button>
+    </a>
+      </Box>
+      <Box
+        position="absolute"
+        top="0"
+        right="0"
+        bottom="0"
+        left="0"
+        zIndex="-2"
+      >
+        <img 
+        src="/images/hero2.png" 
+        alt="Background Image" 
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+        />
+      </Box>
+    </Flex>
 
       <SimpleGrid
-        columns={2}
-        spacing={10}
-        mt={"50px"}
-        // backdropFilter="blur(10px)"
-        // borderRadius="md"
-        // boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
+         columns={[1, 2]} // Adjust the number of columns based on the screen width
+         spacing={10}
+         mt={"50px"}
+         backdropFilter="blur(10px)"
+         borderRadius="md"
+         boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
         >
 
-        <Box >
-          <Card>
-            <CardBody>
-              <Heading mb={"20px"}> Buy a Coffee </Heading>
-              <Flex direction={"row"}>
-                <Text>Total Coffees:</Text>
-                <Skeleton
-                  isLoaded={!LoadingTotalCoffee}
-                  width={"20px"}
-                  ml={"5px"}
-                >
-                  {totalCoffees?.toString()}
-                </Skeleton>
-              </Flex>
-              <Text fontSize={"2xl"} py={"10px"}>
-                Name:
-              </Text>
-              <Input
-                placeholder="John Doe"
-                maxLength={16}
-                value={name}
-                onChange={handleNameChange}
-              />
-              <Text fontSize={"2xl"} mt={"10px"} py={"10px"}>
-                Send Creator a Message:
-              </Text>
-              <Input
-                placeholder="Hello"
-                maxLength={80}
-                value={message}
-                onChange={handleMessageChange}
-              />
-              <Box mt={"20px"}>
-                {address ? (
-                  <Web3Button
-                    contractAddress={contractAddress}
-                    action={(contract) => {
-                      contract.call("buyCoffee", [message, name], {
-                        value: ethers.utils.parseEther("0.01"),
-                      });
-                    }}
-                    onSuccess={() => clearValues()}
-                  >
-                    {"Buy a Coffee 0.01ETH"}
-                  </Web3Button>
-                ) : (
-                  <Text>&quot;Please connect your Wallet&quot;</Text>
-                )}
-              </Box>
-            </CardBody>
-          </Card>
-        </Box>
+    <Box
+      // bgGradient={`linear(to-r, ${gradientColor}, ${gradientColor})`}
+      borderRadius="md"
+      bgGradient="linear(to right, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8))"
+      p={6}
+    >
+      <Card id="donate-section">
+        <CardBody>
+          <Heading mb={4} mt={4} textColor="blue.600">
+            Send coffee with SipSponsor
+          </Heading>
+          <Flex direction="row" alignItems="center">
+            <Text>Total Coffees:</Text>
+            <Skeleton isLoaded={!LoadingTotalCoffee} width={4} ml={1}>
+              {totalCoffees?.toString()}
+            </Skeleton>
+          </Flex>
+          <Text fontSize="2xl" py={4}>
+            Name:
+          </Text>
+          <Input
+            placeholder="John Doe"
+            maxLength={16}
+            value={name}
+            onChange={handleNameChange}
+          />
+          <Text fontSize="2xl" mt={4} py={4}>
+            Send Creator a Message:
+          </Text>
+          <Input
+            placeholder="Hello"
+            maxLength={80}
+            value={message}
+            onChange={handleMessageChange}
+          />
+          <Box mt={6}>
+            {address ? (
+              <Web3Button
+                contractAddress={contractAddress}
+                action={(contract) => {
+                  contract.call('buyCoffee', [message, name], {
+                    value: ethers.utils.parseEther('0.01'),
+                  });
+                }}
+                onSuccess={clearValues}
+              >
+                Buy a Coffee 0.01ETH
+              </Web3Button>
+            ) : (
+              <Text>"Please connect your Wallet"</Text>
+            )}
+          </Box>
+        </CardBody>
+      </Card>
+    </Box>
 
         <Box>
           <Card maxH={"60hv"} overflow={"scroll"} >
