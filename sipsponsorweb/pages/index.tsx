@@ -122,7 +122,7 @@ const Home: NextPage = () => {
         </Text>
         <Text fontSize="xl" mb={8} color="white">
           Help us support the less privileged by sending them a coffee. 
-          Your contribution can bring a smile to someone's face and brighten their day.
+          Your contribution can bring a smile to someone&apos;s face and brighten their day.
         </Text>
         <a href="#donate-section">
       <Button colorScheme="purple" size="lg">
@@ -204,7 +204,7 @@ const Home: NextPage = () => {
                 Buy a Coffee 0.01ETH
               </Web3Button>
             ) : (
-              <Text>"Please connect your Wallet"</Text>
+              <Text> &quot;Please connect your Wallet &quot;</Text>
             )}
           </Box>
         </CardBody>
